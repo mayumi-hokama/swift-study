@@ -14,6 +14,9 @@
 		007E0A8120F0BAF700A1CE3A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 007E0A7F20F0BAF700A1CE3A /* LaunchScreen.storyboard */; };
 		007E0A8C20F0BAF700A1CE3A /* SampleProtobufTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007E0A8B20F0BAF700A1CE3A /* SampleProtobufTests.swift */; };
 		007E0A9720F0BAF700A1CE3A /* SampleProtobufUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007E0A9620F0BAF700A1CE3A /* SampleProtobufUITests.swift */; };
+		007E0AB620F0C8C500A1CE3A /* SwiftProtobuf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 007E0AB520F0C8C500A1CE3A /* SwiftProtobuf.framework */; };
+		007E0AB720F0C8C500A1CE3A /* SwiftProtobuf.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 007E0AB520F0C8C500A1CE3A /* SwiftProtobuf.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		007E0ABA20F0EBD900A1CE3A /* DataModel.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007E0AB920F0EBD900A1CE3A /* DataModel.pb.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +36,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		007E0AB820F0C8C500A1CE3A /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				007E0AB720F0C8C500A1CE3A /* SwiftProtobuf.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		007E0A7320F0BAF600A1CE3A /* SampleProtobuf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SampleProtobuf.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		007E0A7620F0BAF600A1CE3A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -47,6 +64,8 @@
 		007E0A9220F0BAF700A1CE3A /* SampleProtobufUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SampleProtobufUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		007E0A9620F0BAF700A1CE3A /* SampleProtobufUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleProtobufUITests.swift; sourceTree = "<group>"; };
 		007E0A9820F0BAF700A1CE3A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		007E0AB520F0C8C500A1CE3A /* SwiftProtobuf.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftProtobuf.framework; path = Carthage/Build/iOS/SwiftProtobuf.framework; sourceTree = "<group>"; };
+		007E0AB920F0EBD900A1CE3A /* DataModel.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModel.pb.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				007E0AB620F0C8C500A1CE3A /* SwiftProtobuf.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,6 +97,7 @@
 		007E0A6A20F0BAF600A1CE3A = {
 			isa = PBXGroup;
 			children = (
+				007E0AB520F0C8C500A1CE3A /* SwiftProtobuf.framework */,
 				007E0A7520F0BAF600A1CE3A /* SampleProtobuf */,
 				007E0A8A20F0BAF700A1CE3A /* SampleProtobufTests */,
 				007E0A9520F0BAF700A1CE3A /* SampleProtobufUITests */,
@@ -97,6 +118,7 @@
 		007E0A7520F0BAF600A1CE3A /* SampleProtobuf */ = {
 			isa = PBXGroup;
 			children = (
+				007E0AB920F0EBD900A1CE3A /* DataModel.pb.swift */,
 				007E0A7620F0BAF600A1CE3A /* AppDelegate.swift */,
 				007E0A7820F0BAF600A1CE3A /* ViewController.swift */,
 				007E0A7A20F0BAF600A1CE3A /* Main.storyboard */,
@@ -135,6 +157,8 @@
 				007E0A6F20F0BAF600A1CE3A /* Sources */,
 				007E0A7020F0BAF600A1CE3A /* Frameworks */,
 				007E0A7120F0BAF600A1CE3A /* Resources */,
+				007E0AA920F0C31400A1CE3A /* ShellScript */,
+				007E0AB820F0C8C500A1CE3A /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -251,12 +275,30 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		007E0AA920F0C31400A1CE3A /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftProtobuf.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		007E0A6F20F0BAF600A1CE3A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				007E0A7920F0BAF600A1CE3A /* ViewController.swift in Sources */,
+				007E0ABA20F0EBD900A1CE3A /* DataModel.pb.swift in Sources */,
 				007E0A7720F0BAF600A1CE3A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -432,6 +474,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WQSQJ8Y7SR;
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Build/iOS";
 				INFOPLIST_FILE = SampleProtobuf/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -450,6 +493,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WQSQJ8Y7SR;
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Build/iOS";
 				INFOPLIST_FILE = SampleProtobuf/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
